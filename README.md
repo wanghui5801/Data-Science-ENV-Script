@@ -6,6 +6,6 @@ A script of setting the jupyterlab, you can use this script by the following cod
 sudo apt update
 sudo apt install wget -y
 wget https://raw.githubusercontent.com/wanghui5801/Jupyterlab-Script/main/jupyterlab.sh
-chmod -x jupyter.sh
-source jupyter.sh
+chmod -x jupyterlab.sh
+source jupyterlab.sh
 ```
