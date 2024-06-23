@@ -149,6 +149,7 @@ EOF
 	sudo systemctl enable jupyterlab
 	sudo systemctl start jupyterlab
 	echo -e "${YELLOW}Now everything is OK, please start your ${BLUE}Data Science!${RESET}"
+ 	source ${DIR}/miniconda3/bin/deactivate jupyter >/dev/null 2>&1
 }
 
 runall() {
