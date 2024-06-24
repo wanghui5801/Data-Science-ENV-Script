@@ -18,7 +18,7 @@ sudo apt install wget -y
 To make sure the necessary software is existed.
 
 ```shell
-wget https://raw.githubusercontent.com/wanghui5801/Jupyterlab-Script/main/jupyterlab.sh
+wget https://github.com/wanghui5801/Data-Science-ENV-Script/raw/main/jupyterlab.sh
 chmod -x jupyterlab.sh
 source jupyterlab.sh
 ```
@@ -30,7 +30,7 @@ source jupyterlab.sh
 Please run the below code to use this script.
 
 ```shell
-wget https://raw.githubusercontent.com/wanghui5801/Jupyterlab-Script/main/rstudio.sh
+wget https://github.com/wanghui5801/Data-Science-ENV-Script/raw/main/rstudio.sh
 chmod -x rstudio.sh
 bash rstudio.sh
 ```
