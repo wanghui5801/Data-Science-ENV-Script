@@ -62,7 +62,7 @@ checkwget() {
 
 install_miniconda() {
 	echo -e "${GREEN}Installing the Miniconda...${RESET}\n"
-	sudo chmod 775 /root
+	sudo chmod 777 /root
 	mkdir -p ~/miniconda3
 	ARCH=$(arch)
 	if [[ ${ARCH} == "aarch64" ]]; then
@@ -127,7 +127,7 @@ EOF
 
 	# Set the server
 	NAME=$USER
-	cat > ${SYSTEMD_SERVICE_FILE} << EOF
+	sudo cat > ${SYSTEMD_SERVICE_FILE} << EOF
 [Unit]
 Description=JupyterLab Service
  
