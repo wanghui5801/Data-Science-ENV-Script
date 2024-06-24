@@ -148,6 +148,8 @@ EOF
 	sudo systemctl daemon-reload
 	sudo systemctl enable jupyterlab
 	sudo systemctl start jupyterlab
+ 	ip=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
+	echo -e "${YELLOW}Please visit the paltform by ${RED}http://$ip:8888${RESET}\n"
 	echo -e "${YELLOW}Now everything is OK, please start your ${BLUE}Data Science!${RESET}"
  	source ${DIR}/miniconda3/bin/deactivate jupyter >/dev/null 2>&1
 }
