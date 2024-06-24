@@ -1,12 +1,13 @@
 # Data Science Platform Script
 
-A script of setting the jupyterlab, you can use this script by the following code. Please make sure you are not in **root**.
+A script of setting the data science platform, you can use this script by the following code. Please make sure you are not in **root**.
 
-- This script has been tested on the Ubuntu 20+, Debian 11+.
 
 ## Tutorial
 
 ### Jupyterlab Platform
+
+- This script has been tested on the **Ubuntu 20+, Debian 11+**.
 
 Please run the following command firstly
 
@@ -24,7 +25,9 @@ source jupyterlab.sh
 
 ### Rstudio Platform
 
-Please run the below code to use this script, Please **note**, this script is just fit for the **Debian 11+**, and don't fit for the other systems.
+- This script is just fit for the **Debian 11+**, and don't fit for the other systems.
+
+Please run the below code to use this script.
 
 ```shell
 wget https://raw.githubusercontent.com/wanghui5801/Jupyterlab-Script/main/rstudio.sh
