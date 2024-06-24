@@ -81,11 +81,11 @@ install_miniconda() {
 }
 
 install_jupyterlab() {
-	sudo chmod 777 /lib/systemd/system/
 	DIR=$(pwd)
 	echo -e "${PURPLE}Installing the Jupyterlab...${RESET}\n"
 	echo -e "${CYAN}Please wait 2/3 minutes...${RESET}\n"
 	SYSTEMD_SERVICE_FILE="/lib/systemd/system/jupyterlab.service"
+ 	sudo chmod 777 /lib/systemd/system
 	mkdir -p note
 	#if [ ! -f "${DIR}/miniconda3/envs/jupyter" ]; then
 	#	sudo rm -r ${DIR}/miniconda3/envs/jupyter
