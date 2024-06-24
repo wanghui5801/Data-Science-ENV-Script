@@ -15,6 +15,7 @@ check_root() {
 }
 
 check_port() {
+	sudo apt install net-tools -y >/dev/null 2>&1
 	if netstat -an | grep 8787 | grep -i listen >/dev/null ; then
 	    echo -e "${RED}The port 8787 is running, please stop this port.${RESET}"
 	    exit 1
