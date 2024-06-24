@@ -62,7 +62,7 @@ checkwget() {
 
 install_miniconda() {
 	echo -e "${GREEN}Installing the Miniconda...${RESET}\n"
-	sudo chmod 777 /root
+	sudo chmod 775 /root
 	mkdir -p ~/miniconda3
 	ARCH=$(arch)
 	if [[ ${ARCH} == "aarch64" ]]; then
@@ -81,7 +81,7 @@ install_miniconda() {
 }
 
 install_jupyterlab() {
-	sudo chmod 777 /lib/systemd/system/
+	sudo chmod 775 /lib/systemd/system/
 	DIR=$(pwd)
 	echo -e "${PURPLE}Installing the Jupyterlab...${RESET}\n"
 	echo -e "${CYAN}Please wait 2/3 minutes...${RESET}\n"
