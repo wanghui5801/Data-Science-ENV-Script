@@ -81,7 +81,7 @@ install_miniconda() {
 }
 
 install_jupyterlab() {
-	sudo chmod 775 /lib/systemd/system/
+	sudo chmod 777 /lib/systemd/system/
 	DIR=$(pwd)
 	echo -e "${PURPLE}Installing the Jupyterlab...${RESET}\n"
 	echo -e "${CYAN}Please wait 2/3 minutes...${RESET}\n"
