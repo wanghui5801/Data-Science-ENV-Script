@@ -99,7 +99,7 @@ install_jupyterlab() {
 	source ${DIR}/miniconda3/bin/activate jupyter
 	conda install -c conda-forge jupyterlab --yes >/dev/null 2>&1
 	#echo y|jupyter server --generate-config >/dev/null 2>&1
-	if [ ! -f "${DIR}/.jupyter/jupyter_lab_config.py" ]; then
+	if [ ! -f "${DIR}/.jupyter/jupyter_server_config.py" ]; then
 		jupyter server --generate-config >/dev/null 2>&1
 	else
 		#sudo rm ${DIR}/.jupyter/jupyter_server_config.py
