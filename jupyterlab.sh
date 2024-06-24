@@ -127,7 +127,7 @@ EOF
 
 	# Set the server
 	NAME=$USER
-	sudo cat > ${SYSTEMD_SERVICE_FILE} << EOF
+	cat > ${SYSTEMD_SERVICE_FILE} << EOF
 [Unit]
 Description=JupyterLab Service
  
