@@ -16,6 +16,13 @@ check_root() {
     fi
 }
 
+check_port() {
+	if netstat -an | grep 8888 | grep -i listen >/dev/null ; then
+	    echo -e "${RED}The port 8888 is running, please stop this port.${RESET}"
+	    exit 1
+	fi
+}
+
 checksystem() {
 	if [ -f /etc/redhat-release ]; then
 	    release="centos"
@@ -145,17 +152,19 @@ RestartSec=10
 WantedBy=multi-user.target
 EOF
 
-	sudo systemctl daemon-reload
-	sudo systemctl enable jupyterlab
-	sudo systemctl start jupyterlab
- 	ip=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
-	echo -e "${YELLOW}Please visit the paltform by ${RED}http://$ip:8888${RESET}\n"
+	sudo systemctl daemon-reload >/dev/null 2>&1
+	sudo systemctl enable jupyterlab >/dev/null 2>&1
+	sudo systemctl start jupyterlab >/dev/null 2>&1
+	sudo apt install net-tools -y > /dev/null 2>&1
+ 	ip=`ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|grep -v docker|awk '{print $2}'|tr -d "addr:"| tail -n 1`
+	echo -e "${YELLOW}Please visit the paltform by ${RED}http://${ip}:8888${RESET}\n"
 	echo -e "${YELLOW}Now everything is OK, please start your ${BLUE}Data Science!${RESET}"
  	source ${DIR}/miniconda3/bin/deactivate jupyter >/dev/null 2>&1
 }
 
 runall() {
 	check_root;
+	check_port;
 	checksystem;
 	checkcurl;
 	checkwget;
