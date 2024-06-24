@@ -98,22 +98,22 @@ install_jupyterlab() {
 	source ~/.bashrc
 	source ${DIR}/miniconda3/bin/activate jupyter
 	conda install -c conda-forge jupyterlab --yes >/dev/null 2>&1
-	echo y|jupyter server --generate-config >/dev/null 2>&1
-	#if [ ! -f "${DIR}/.jupyter/jupyter_lab_config.py" ]; then
-	#	yes y|jupyter server --generate-config >/dev/null 2>&1
-	#else
-	#	sudo rm ${DIR}/.jupyter/jupyter_server_config.py
-	#	yes y|jupyter server --generate-config >/dev/null 2>&1
-	#fi
+	#echo y|jupyter server --generate-config >/dev/null 2>&1
+	if [ ! -f "${DIR}/.jupyter/jupyter_lab_config.py" ]; then
+		jupyter server --generate-config >/dev/null 2>&1
+	else
+		#sudo rm ${DIR}/.jupyter/jupyter_server_config.py
+		echo y|jupyter server --generate-config >/dev/null 2>&1
+	fi
 	echo -e "${RED}Please input the jupyter password${RESET}"
 	jupyter server password >/dev/null 2>&1
-	echo y|jupyter server --generate-config >/dev/null 2>&1
-	#if [ ! -f "${DIR}/.jupyter/jupyter_lab_config.py" ]; then
-	#	yes y|jupyter server --generate-config >/dev/null 2>&1
-	#else
-	#	sudo rm ${DIR}/.jupyter/jupyter_lab_config.py
-	#	yes y|jupyter server --generate-config >/dev/null 2>&1
-	#fi
+	#echo y|jupyter server --generate-config >/dev/null 2>&1
+	if [ ! -f "${DIR}/.jupyter/jupyter_lab_config.py" ]; then
+		jupyter lab --generate-config >/dev/null 2>&1
+	else
+		#sudo rm ${DIR}/.jupyter/jupyter_lab_config.py
+		echo y|jupyter lab --generate-config >/dev/null 2>&1
+	fi
 	cat > ${DIR}/.jupyter/jupyter_lab_config.py << EOF
 c.ServerApp.ip = '0.0.0.0'
 c.ServerApp.allow_origin = '*'
